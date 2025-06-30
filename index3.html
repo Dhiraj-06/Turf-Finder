@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayPal - Connect with Sports Enthusiasts</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left"></div>
+            <div class="header-center">
+                <h1>PlayPal</h1>
+                <p>Coordinate and join sports matches at your local turf</p>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span class="user-greeting" id="userGreeting">Welcome!</span>
+                    <button class="logout-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="sports-tabs">
+            <div class="tab active" data-sport="cricket">
+                <img src="images/cricket.webp" alt="Cricket">
+            </div>
+            <div class="tab" data-sport="football">
+                <img src="images/football.jpeg" alt="Football">
+            </div>
+            <div class="tab" data-sport="badminton">
+                <img src="images/badminton.jpg" alt="Badminton">
+            </div>
+        </div>
+
+        <div class="match-form">
+            <h2 class="section-title">Create a New Match</h2>
+            <form id="createMatchForm">
+                <div class="form-group">
+                    <label for="sportType">Sport Type</label>
+                    <select id="sportType" required>
+                        <option value="cricket">Cricket</option>
+                        <option value="football">Football</option>
+                        <option value="badminton">Badminton</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="matchDate">Date</label>
+                        <input type="date" id="matchDate" required>
+                    </div>
+                    <div class="col form-group">
+                        <label for="matchTime">Time</label>
+                        <input type="time" id="matchTime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="turfLocation">Turf Location</label>
+                    <select id="turfLocation" required>
+                        <option value="">Select a turf</option>
+                        <option value="greenfield">Greenfield Turf</option>
+                        <option value="sportzone">Sport Zone Complex</option>
+                        <option value="citysports">City Sports Arena</option>
+                        <option value="stadium">Main Stadium Turf</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="maxPlayers">Total Players Needed</label>
+                        <input type="number" id="maxPlayers" min="2" required>
+                    </div>
+                    <div class="col form-group">
+                        <label for="skillLevel">Skill Level</label>
+                        <select id="skillLevel" required>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="any">Any Level</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="matchDescription">Additional Details</label>
+                    <textarea id="matchDescription" rows="4"
+                        placeholder="Add any additional information about the match..."></textarea>
+                </div>
+
+                <button type="submit">Create Match</button>
+            </form>
+        </div>
+
+        <div class="scheduled-matches">
+            <h2 class="section-title">Scheduled Matches</h2>
+
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="sport-type sport-cricket">
+                        <img src="/api/placeholder/30/30" alt="Cricket">
+                        Cricket Match
+                    </div>
+                    <div>April 27, 2025 • 5:00 PM</div>
+                </div>
+                <div class="match-details">
+                    <p><strong>Location:</strong> Greenfield Turf</p>
+                    <p><strong>Skill Level:</strong> Intermediate</p>
+                    <p><strong>Organized by:</strong> John D.</p>
+                    <p><strong>Details:</strong> Friendly T20 match. Please bring your own equipment if possible.</p>
+                </div>
+                <div class="players-needed">
+                    6 more players needed
+                </div>
+                <button class="join-button">Join This Match</button>
+            </div>
+
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="sport-type sport-football">
+                        <img src="/api/placeholder/30/30" alt="Football">
+                        Football Match
+                    </div>
+                    <div>April 26, 2025 • 6:30 PM</div>
+                </div>
+                <div class="match-details">
+                    <p><strong>Location:</strong> Sport Zone Complex</p>
+                    <p><strong>Skill Level:</strong> Any Level</p>
+                    <p><strong>Organized by:</strong> Mike T.</p>
+                    <p><strong>Details:</strong> 5v5 match. Turf shoes recommended.</p>
+                </div>
+                <div class="players-needed">
+                    3 more players needed
+                </div>
+                <button class="join-button">Join This Match</button>
+            </div>
+
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="sport-type sport-badminton">
+                        <img src="/api/placeholder/30/30" alt="Badminton">
+                        Badminton Match
+                    </div>
+                    <div>April 28, 2025 • 7:00 PM</div>
+                </div>
+                <div class="match-details">
+                    <p><strong>Location:</strong> City Sports Arena</p>
+                    <p><strong>Skill Level:</strong> Beginner</p>
+                    <p><strong>Organized by:</strong> Sarah L.</p>
+                    <p><strong>Details:</strong> Doubles match. Rackets available for rent.</p>
+                </div>
+                <div class="players-needed">
+                    2 more players needed6
+                </div>
+                <button class="join-button">Join This Match</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+    
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
+        import {
+            getAuth,
+            onAuthStateChanged,
+            signOut
+        } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
+        import {
+            getFirestore,
+            doc,
+            getDoc
+        } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCDIFN5Ua7VJaB7gJRQ5CfqkrvyTQsn16I",
+            authDomain: "asep2-534cf.firebaseapp.com",
+            projectId: "asep2-534cf",
+            storageBucket: "asep2-534cf.firebasestorage.app",
+            messagingSenderId: "687010698166",
+            appId: "1:687010698166:web:c892e174f2a35e366ce717"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        
+        document.body.style.display = 'none';
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                console.log('✅ User is authenticated:', user.email);
+
+                try {
+                    const userDoc = await getDoc(doc(db, 'users', user.uid));
+                    let displayName = user.email.split('@')[0]; // fallback
+
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        displayName = userData.firstName || displayName;
+                    }
+
+                    const userGreeting = document.getElementById('userGreeting');
+                    if (userGreeting) {
+                        userGreeting.textContent = `Welcome, ${displayName}!`;
+                    }
+
+                    document.body.style.display = 'block';
+
+                } catch (error) {
+                    console.error('Error fetching user data:', error);
+                    document.body.style.display = 'block';
+                    const userGreeting = document.getElementById('userGreeting');
+                    if (userGreeting) {
+                        userGreeting.textContent = `Welcome!`;
+                    }
+                }
+
+            } else {
+                console.log('❌ User is NOT authenticated - redirecting to login');
+                window.location.replace('login.html');
+            }
+        });
+
+
+        window.handleLogout = async () => {
+            try {
+                console.log('🔄 Signing out user...');
+                await signOut(auth);
+                console.log('✅ User signed out successfully');
+            } catch (error) {
+                console.error('❌ Error signing out:', error);
+                alert('Error signing out. Please try again.');
+            }
+        };
+
+    
+        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+
+        setTimeout(() => {
+            if (document.body.style.display === 'none') {
+                console.log('⚠️ Authentication check timed out - redirecting to login');
+                window.location.replace('login.html');
+            }
+        }, 5000);
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayPal - Connect with Sports Enthusiasts</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="auth-section">
+            <div class="auth-container">
+
+                <div class="header">
+                    <div class="logo">
+                        <i class="fas fa-futbol"></i>
+                        <h1>PlayPal</h1>
+                    </div>
+                    <p class="tagline">Connect. Play. Compete.</p>
+                </div>
+
+
+
+                <!--The main login form starts here onwards.-->
+                <div class="form-container" id="loginForm">
+                    <h2>Welcome Back!</h2>
+                    <p class="form-subtitle">Sign in to find your next game</p>
+
+                    <form class="auth-form" id="loginFormElement">
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="loginEmail" placeholder="Email address" required>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="loginPassword" placeholder="Password" required>
+                            <i class="fas fa-eye toggle-password" onclick="togglePassword(this)"></i>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <!-- <a href="#" class="forgot-password">Forgot Password?</a> -->
+                        </div>
+
+                        <button type="submit" class="auth-btn primary">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Sign In
+                        </button>
+
+                        <div class="divider">
+                            <span>or continue with</span>
+                        </div>
+
+                        <div class="social-buttons">
+                            <button type="button" class="social-btn google" onclick="signInWithGoogle()">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <!-- <button type="button" class="social-btn facebook" onclick="signInWithFacebook()">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button> -->
+                        </div>
+                    </form>
+
+                    <p class="switch-form">
+                        New to PlayPal?
+                        <a href="#" onclick="switchForm('signup')">Create Account</a>
+                    </p>
+                </div>
+
+
+                <!-- Signup Form HTML Code new -->
+                <div class="form-container hidden" id="signupForm">
+                    <h2>Join PlayPal</h2>
+                    <p class="form-subtitle">Create your account and start playing</p>
+
+                    <form class="auth-form" id="signupFormElement">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="firstName" placeholder="First Name" required>
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="lastName" placeholder="Last Name" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="signupEmail" placeholder="Email address" required>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phoneNumber" placeholder="Phone number" required>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signupPassword" placeholder="Password" required>
+                            <i class="fas fa-eye toggle-password" onclick="togglePassword(this)"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                            <i class="fas fa-eye toggle-password" onclick="togglePassword(this)"></i>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" onclick="openTermsModal()"
+                                    style="color: #007bff; text-decoration: underline;">Terms & Conditions</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="auth-btn primary">
+                            <i class="fas fa-user-plus"></i>
+                            Create Account
+                        </button>
+
+                        <div class="divider">
+                            <span>or continue with</span>
+                        </div>
+
+                        <div class="social-buttons">
+                            <button type="button" class="social-btn google" onclick="signInWithGoogle()">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <!-- <button type="button" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button> -->
+                        </div>
+                    </form>
+
+                    <p class="switch-form">
+                        Already have an account?
+                        <a href="#" onclick="switchForm('login')">Sign In</a>
+                    </p>
+                </div>
+
+                <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Processing...</p>
+                </div>
+
+                <div id="messageContainer" class="message-container" style="display: none;">
+                    <p id="messageText"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Visual Section -->
+        <div class="visual-section">
+            <div class="visual-content">
+                <div class="visual-overlay">
+                    <h2>Find Your Game</h2>
+                    <p>Connect with local sports enthusiasts, discover nearby turfs, and organize matches in your area.
+                    </p>
+
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Find Nearby Turfs</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Connect with Players</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule Matches</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Team Chat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Sports Icons -->
+            <div class="floating-icons">
+                <i class="fas fa-futbol" style="--delay: 0s;"></i>
+                <i class="fas fa-basketball-ball" style="--delay: 2s;"></i>
+                <i class="fas fa-volleyball-ball" style="--delay: 4s;"></i>
+                <i class="fas fa-table-tennis" style="--delay: 6s;"></i>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Terms & Conditions</h2>
+                <span class="close" onclick="closeTermsModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>PlayPal Terms of Service</h3>
+
+                <h4>1. Acceptance of Terms</h4>
+                <p>By accessing and using PlayPal, you accept and agree to be bound by the terms and provision of this
+                    agreement.</p>
+
+                <h4>2. User Accounts</h4>
+                <p>You are responsible for maintaining the confidentiality of your account and password. You agree to
+                    accept responsibility for all activities that occur under your account.</p>
+
+                <h4>3. Service Description</h4>
+                <p>PlayPal is a platform that connects sports enthusiasts, helps find nearby turfs, and organizes
+                    matches. We reserve the right to modify or discontinue the service at any time.</p>
+
+                <h4>4. User Conduct</h4>
+                <p>You agree not to use the service to:</p>
+                <ul>
+                    <li>Violate any laws or regulations</li>
+                    <li>Harass, abuse, or harm other users</li>
+                    <li>Post false or misleading information</li>
+                    <li>Interfere with the proper functioning of the platform</li>
+                </ul>
+
+                <h4>5. Privacy Policy</h4>
+                <p>Your privacy is important to us. We collect and use your information in accordance with our Privacy
+                    Policy.</p>
+
+                <h4>6. Limitation of Liability</h4>
+                <p>PlayPal shall not be liable for any indirect, incidental, special, consequential, or punitive damages
+                    resulting from your use of the service.</p>
+
+                <h4>7. Termination</h4>
+                <p>We may suspend or terminate your account at any time for violation of these terms.</p>
+
+                <h4>8. Changes to Terms</h4>
+                <p>We reserve the right to modify these terms at any time. Continued use of the service constitutes
+                    acceptance of modified terms.</p>
+
+                <h4>9. Contact Information</h4>
+                <p>For questions about these Terms & Conditions, please contact us at:
+                    <strong>chaitanya.agaj63@gmail.com</strong></p>
+
+                <p><em>Last updated: June 2025</em></p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn secondary" onclick="closeTermsModal()">Close</button>
+                <button class="modal-btn primary" onclick="acceptTerms()">Accept & Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="firebaseScript.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
+
